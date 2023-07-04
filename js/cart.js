@@ -10,9 +10,9 @@ export const addToCart = (productDom) => {
     price: productDom.querySelector(".product-price").innerText,
     quantity: 1,
   };
-  const IsinCart =
+  const InsertToCart =
     cart.filter((cartItem) => cartItem.name === product.name).length > 0;
-  if (IsinCart === false) {
+  if (InsertToCart === false) {
     cartDom.insertAdjacentHTML(
       "beforeend",
       `
@@ -56,9 +56,6 @@ export const addToCart = (productDom) => {
         </div>`
       );
     }
-
-    addToCartBtnDom.innerText = "In cart";
-    addToCartBtnDom.disabled = true;
     cart.push(product);
 
     const cartItemsDom = cartDom.querySelectorAll(".cart-items");
