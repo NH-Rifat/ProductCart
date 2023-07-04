@@ -1,13 +1,11 @@
 import products from "./products.js";
-import { addToCart, cartFunc } from "./cart.js";
-console.log({ products });
+import { addToCart } from "./cart.js";
 
 function displayProducts() {
   const productList = document.getElementById("product-list");
 
   for (const product of products) {
     const { image, name, price } = product;
-    console.log({ product });
     const singleProduct = `
         <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
           <div class="shadow-sm card mb-3 product">
@@ -31,6 +29,7 @@ function displayProducts() {
     productList.insertAdjacentHTML("beforeend", singleProduct);
   }
 
+  // add to cart
   const addToCartButton = document.querySelectorAll("#add-to-cart");
   addToCartButton.forEach((addToCartButton) => {
     addToCartButton.addEventListener("click", () => {
